@@ -274,19 +274,23 @@ body._lock {
   margin: 0 auto;
 }
 
-.logo__image {
-  display: inline-block;
-  max-width: 100%;
+.logo {
+  width: 100%;
 }
 
-.logo__image > img {
+.logo__image-box {
+  display: block;
+}
+
+.logo__image {
   width: 100%;
+  min-width: 116px;
+  min-height: 47px;
+  max-width: 170px;
 }
 
 .logo > img {
   width: 100%;
-  min-width: 116px;
-  min-height: 47px;
 }
 
 .primary-button {
@@ -682,7 +686,7 @@ body._lock {
 }
 
 .burger__logo {
-  width: 34%;
+  width: 36%;
 }
 
 .svg-close-dims {
@@ -1658,12 +1662,9 @@ button.swiper-pagination-bullet {
 
 ._gallery {
   position: relative;
-  width: 1170px;
 }
 
 ._gallery__body {
-  overflow: hidden;
-  max-width: 1170px;
   position: relative;
   min-width: 0px;
 }
@@ -1671,10 +1672,14 @@ button.swiper-pagination-bullet {
 ._gallery__row {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 1000px 170px;
-  grid-template-columns: 1000px 170px;
-  -ms-grid-rows: 600px;
-  grid-template-rows: 600px;
+  -ms-grid-columns: 83% 17.6%;
+  grid-template-columns: 83% 17.6%;
+  -ms-grid-rows: auto;
+  grid-template-rows: auto;
+  -webkit-column-gap: 30px;
+     -moz-column-gap: 30px;
+          column-gap: 30px;
+  row-gap: 10px;
 }
 
 ._gallery__swiper {
@@ -1682,7 +1687,7 @@ button.swiper-pagination-bullet {
 }
 
 ._gallery__swiper-image {
-  text-align: center;
+  text-align: left;
 }
 
 ._gallery__swiper-image > img {
@@ -1690,17 +1695,17 @@ button.swiper-pagination-bullet {
 }
 
 ._gallery__swiper-mini-wrapper {
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: auto;
+  grid-template-columns: auto;
+  -ms-grid-rows: (21%)[4];
+  grid-template-rows: repeat(4, 21%);
+  -ms-flex-line-pack: justify;
+      align-content: space-between;
 }
 
 ._gallery__swiper-mini-slide {
-  -webkit-box-flex: 0;
-      -ms-flex: 0 1 10%;
-          flex: 0 1 10%;
-  width: 100%;
   opacity: 0.2;
   -webkit-transition: opacity 0.3s ease 0s;
   -o-transition: opacity 0.3s ease 0s;
@@ -1712,33 +1717,57 @@ button.swiper-pagination-bullet {
 }
 
 ._gallery__swiper-mini-image {
-  position: relative;
-  padding: 0px 0px 267% 0px;
-  width: 170px;
   cursor: pointer;
-  margin-bottom: 30px;
 }
 
 ._gallery__swiper-mini-image > img {
-  -o-object-fit: cover;
-     object-fit: cover;
+  min-width: 84px;
+}
+
+.swiper-button-prev {
+  display: none;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  display: none;
+}
+
+.swiper-button-next::after,
+.swiper-button-prev::after {
+  color: #E4AB39;
+  font-size: 12px;
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  top: 8px;
+  left: 10px;
 }
 
-.swiper-pagination {
-  bottom: 0;
+.swiper-button-prev {
+  top: 70%;
 }
 
-.swiper-pagination-bullet {
-  width: 20px;
-  height: 20px;
+.swiper-horizontal > .swiper-pagination-bullets {
+  bottom: -71px;
+}
+
+.swiper-pagination-bullet-active-main {
+  height: 24px;
+  width: 24px;
+  border-radius: 50%;
   font-size: 14px;
-  line-height: 20px;
-  background-color: #fff;
+  border: 4px solid #E4AB39;
+  background-color: transparent;
+}
+
+.swiper-pagination-bullet-active-next,
+.swiper-pagination-bullet-active-next-next,
+.swiper-pagination-bullet-active-prev-prev,
+.swiper-pagination-bullet-active-prev {
+  background-color: transparent;
+  border: 3px solid #d3d3d3;
+  border-radius: 50%;
+  height: 22px;
+  width: 22px;
 }
 
 .page {
@@ -1770,7 +1799,7 @@ button.swiper-pagination-bullet {
 }
 
 .page__gallery {
-  padding-bottom: 60px;
+  padding-bottom: 123px;
 }
 
 .no-webp .page__video {
@@ -2090,6 +2119,10 @@ button.swiper-pagination-bullet {
 .gallery__heading-box {
   text-align: center;
   margin-bottom: 50px;
+}
+
+.gallery__slider-box {
+  width: 100%;
 }
 
 .gallery__heading {
@@ -2536,6 +2569,31 @@ button.swiper-pagination-bullet {
     max-width: 750px;
   }
 
+  ._gallery__row {
+    -ms-grid-rows: 20% 80%;
+    grid-template-rows: 20% 80%;
+    -ms-grid-columns: auto;
+    grid-template-columns: auto;
+  }
+
+  ._gallery__swiper {
+    -ms-grid-row: 2;
+        grid-row-start: 2;
+  }
+
+  ._gallery__swiper-mini-wrapper {
+    -ms-grid-rows: 100%;
+    grid-template-rows: 100%;
+    -ms-grid-columns: (1fr)[3];
+    grid-template-columns: repeat(3, 1fr);
+    justify-items: center;
+    overflow: hidden;
+  }
+
+  .swiper-horizontal > .swiper-pagination-bullets {
+    bottom: 0px;
+  }
+
   .benefits__text:nth-child(1) {
     margin-right: 0px;
   }
@@ -2686,6 +2744,10 @@ button.swiper-pagination-bullet {
     display: none;
   }
 
+  ._gallery__swiper-mini-image > img {
+    width: 100%;
+  }
+
   .page__main-screen {
     padding: 172px 0px 83px 0px;
   }
@@ -2725,7 +2787,7 @@ button.swiper-pagination-bullet {
   }
 
   .benefits__text:nth-child(1) {
-    padding-left: 41px;
+    padding-left: 48px;
     margin-left: 6px;
   }
 
@@ -2737,6 +2799,11 @@ button.swiper-pagination-bullet {
   .benefits__text:nth-child(3) {
     padding-left: 53px;
     margin-left: 6px;
+  }
+
+  .benefits__text > span {
+    font-size: 64px;
+    line-height: 50px;
   }
 
   .lesson-program__button-box {
@@ -2801,6 +2868,43 @@ button.swiper-pagination-bullet {
 }
 
 @media (max-width: 479.98px) {
+  ._gallery__swiper-mini-wrapper {
+    justify-items: flex-start;
+    -webkit-column-gap: 20px;
+       -moz-column-gap: 20px;
+            column-gap: 20px;
+  }
+
+  .swiper-button-prev {
+    display: block;
+  }
+
+  .swiper-button-next,
+  .swiper-button-prev {
+    display: block;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    border: 1px solid #DDDDDD;
+  }
+
+  .swiper-pagination-bullet-active-main {
+    height: 16px;
+    width: 16px;
+  }
+
+  .swiper-pagination-bullet-active-next,
+  .swiper-pagination-bullet-active-next-next,
+  .swiper-pagination-bullet-active-prev-prev,
+  .swiper-pagination-bullet-active-prev {
+    height: 18px;
+    width: 18px;
+  }
+
+  .page__gallery {
+    padding-bottom: 97px;
+  }
+
   .main-screen__col-6 {
     -webkit-box-flex: 0;
         -ms-flex: 0 1 100%;
